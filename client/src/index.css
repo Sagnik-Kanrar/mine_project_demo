@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-mine-darkest text-mine-text font-sans antialiased selection:bg-cyan-500 selection:text-black;
+    overflow-x: hidden;
+  }
+}
+
+/* Industrial Control Room Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080C14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F2C47;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2D3F66;
+}
+
+/* Glowing Industrial Accents */
+.glow-safe {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.glow-caution {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.glow-warning {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+.glow-critical {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.45);
+  animation: pulse-danger 1.5s infinite;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+@keyframes pulse-danger {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+  }
+}
+
+/* Animated Dashed Path for Evacuation Routes */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-evacuation-route {
+  stroke-dasharray: 8, 4;
+  animation: dash 1s linear infinite;
+}
+
+/* Radar Scan Line Effect */
+.radar-sweep {
+  background: conic-gradient(
+    from 0deg,
+    rgba(6, 182, 212, 0) 0deg,
+    rgba(6, 182, 212, 0.15) 60deg,
+    rgba(6, 182, 212, 0) 65deg
+  );
+  animation: rotate-radar 4s linear infinite;
+}
+
+@keyframes rotate-radar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
